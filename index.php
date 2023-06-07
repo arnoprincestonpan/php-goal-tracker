@@ -25,7 +25,13 @@
             <textarea id="text" name="text" placeholder="Type in your goal here."></textarea>
             <!-- Date, usage: Date created.-->
             <label for="date">Date Created</label>
-            <input id="" name="" type="date"  />
+            <input id="date" name="date" type="date"  />
+            <!-- Goal Status, usage: To see if it is completed or not.-->
+            <label for="checkbox">Goal Completed</label>
+            <input id="checkbox" name="checkbox" type="checkbox"  />
+            <br/>
+            <!-- Submit, usage: Save and send Goal.-->
+            <button type="submit">Submit Goal</button>
         </form>
     </main>
 </body>
