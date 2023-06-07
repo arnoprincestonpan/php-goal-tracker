@@ -16,9 +16,9 @@
             <!-- Category, usage: Choose the category that the goal is for.-->
             <label for="cat">Category</label>
             <select id="cat" name="cat">
-                <option value="0">Personal</option>
-                <option value="1">Professional</option>
-                <option value="2">Other</option>
+                <option valueAsNumber="0" selected>Personal</option>
+                <option valueAsNumber="1">Professional</option>
+                <option valueAsNumber="2">Other</option>
             </select>
             <!-- Goal, usage: Area of text for description of goal.-->
             <label for="text">Goal</label>
