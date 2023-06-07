@@ -33,6 +33,29 @@
             <!-- Submit, usage: Save and send Goal.-->
             <button type="submit">Submit Goal</button>
         </form>
+        <!-- PHP Logic Here -->
+        <?php
+        // insert connect.php
+        require_once "connect.php";
+        // select all rows
+        $sql = "SELECT * FROM goals";
+        // try querying all of them, or end the app if it fails
+        $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+        
+        // Incomplete Goals
+        print("<h2>Incomplete Goals</h2>");
+        while($row = mysqli_fetch_array($result)){
+            if($row['goal_complete'] == 0){
+                $category = "Personal";
+            } elseif($row['goal_category'] == 1){
+                $category = "Professional";
+            } else {
+                $category = "Other";
+            }
+        };
+        echo "<div class='goal'>";
+        echo "<a href='complete.php?id='";
+        ?>
     </main>
 </body>
 </html>
