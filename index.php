@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="./styles.css"></link>
     <title>To-Do List</title>
 </head>
 <body>
@@ -73,8 +74,9 @@
                     $cat = "Other";
                 }
                 echo "<div class='goal'>";
+                echo "<strong>" . $cat . "</strong>";
                 echo "<a href='delete.php?id=" . $row['goal_id'] . "'><button class='btnDelete'>Delete</button></a>";
-                echo  "<strong>" . $cat . "</strong><p>" . $row['goal_text'] . "</p>Goal Date: " . $row['goal_date'];
+                echo "<p>" . $row['goal_text'] . "</p>Goal Date: " . $row['goal_date'];
                 echo "</div>";
             }
         }
