@@ -55,8 +55,9 @@
                     $cat = "Other";
                 }
                 echo "<div class='goal'>";
+                echo "<strong>" . $cat . "</strong>";
                 echo "<a href='complete.php?id=" . $row['goal_id'] . "'><button class='btnComplete'>Complete</button></a>";
-                echo "<strong>" . $cat . "</strong><p>" . $row['goal_text'] . "</p>Goal Date: " . $row['goal_date'];
+                echo "<p>" . $row['goal_text'] . "</p>Goal Date: " . $row['goal_date'];
                 echo "</div>";
             }
         }
