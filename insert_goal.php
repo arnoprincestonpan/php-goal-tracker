@@ -4,12 +4,18 @@ require_once 'connect.php';
 $category = $_REQUEST['cat'];
 $text = $_REQUEST['text'];
 $date = $_REQUEST['goaldate'];
+if(empty($date)){
+    $date = date('Y-m-d');
+}
+
 $complete = $_REQUEST['complete'];
 
 // In case complete is not entered, make it 0
-if($complete == '' | $complete == null){
+if(isset($_REQUEST['complete'])){
+    $complete = $_REQUEST['complete'];
+} else {
     $complete = 0;
-} 
+}
 
 $sql = "INSERT INTO goals(goal_category, goal_text, goal_date, goal_complete) VALUES ('$category', '$text', '$date', '$complete')";
 
