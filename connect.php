@@ -13,5 +13,9 @@ $success = mysqli_real_connect(
     $password,
     $db,
     $port
-)
+);
+
+if(!$success){
+    die("Connection Failed: " . mysqli_connect_error());
+}
 ?>
