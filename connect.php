@@ -24,10 +24,26 @@ if(!$success){
 }
 
 $db = "goals";
-$sql_create_db = "CREATE DATABSE IF NOT EXISTS " . $db;
+$sql_create_db = "CREATE DATABASE IF NOT EXISTS " . $db;
 
 if($link->query($sql_create_db) === TRUE){
     "<script>$db created or already exists. Proceeding...</script>";
+} else {
+    die("Error creating database: " . $link->error);
+}
+
+$link->select_db($db);
+
+$sql_create_table = "CREATE TABLE IF NOT EXISTS goals(
+    goal_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    goal_category VARCHAR(255) NOT NULL,
+    goal_text VARCHAR(255) NOT NULL,
+    goal_date DATE,
+    goal_complete TINYINT(1)
+)";
+
+if($link->query($sql_create_table) === TRUE){
+    "<script>Table created or already exists. Proceeding...</script>";
 } else {
     die("Error creating table: " . $link->error);
 }
