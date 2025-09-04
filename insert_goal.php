@@ -1,21 +1,14 @@
 <?php
 require_once 'connect.php';
+// use POST, more accurate/predictable, use nullable (simplified)
 
-$category = $_REQUEST['cat'];
-$text = $_REQUEST['text'];
-$date = $_REQUEST['goaldate'];
+$category = $_POST['cat'] ?? '';
+$text = $_POST['text'] ?? '';
+$date = $_POST['goaldate'] ?? date('Y-m-d');
 if(empty($date)){
     $date = date('Y-m-d');
 }
-
-$complete = $_REQUEST['complete'];
-
-// In case complete is not entered, make it 0
-if(isset($_REQUEST['complete'])){
-    $complete = $_REQUEST['complete'];
-} else {
-    $complete = 0;
-}
+$complete = $_POST['complete'] ?? 0;
 
 $sql = "INSERT INTO goals(goal_category, goal_text, goal_date, goal_complete) VALUES ('$category', '$text', '$date', '$complete')";
 
